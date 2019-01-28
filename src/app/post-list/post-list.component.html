@@ -1,0 +1,17 @@
+<article [ngClass]="{	'content': true,
+						'list-group-item': true,
+						'list-group-item-success': postListItemLoveIts > 0,
+						'list-group-item-danger': postListItemLoveIts < 0
+					}">
+
+	<h3 [ngStyle]="{ color: getColor() }">{{ postListItemTitle }}</h3>
+	
+	<p [ngClass]="{'date': true }">{{ postListItemDate | date: 'EEEE W LLLL yyyy' | titlecase }} {{ postListItemDate | date: 'à HH:mm' }}</p>
+
+	<p [ngStyle]="{ color: getColor() }">{{ postListItemContent }}</p>
+	
+	<button class="btn btn-success mr-3" (click)="onLike()">Love it !</button>
+
+	<button class="btn btn-danger" (click)="onDislike()">Don't love it !</button>
+	
+</article>

@@ -10,10 +10,7 @@
 
 				<div class="list-group">
 
-					<app-post-list 	*ngFor="let postListItem of postsList" 
-									[postListItemTitle]="postListItem.title"
-									[postListItemContent]="postListItem.content"
-									[postListItemLoveIts]="postListItem.loveIts"></app-post-list>
+					<app-post-list [posts]="posts"></app-post-list>
 
 				</div>
 

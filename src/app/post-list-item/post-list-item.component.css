@@ -1,0 +1,33 @@
+.content {
+	position: relative;
+	text-align: justify;
+}
+
+.date {
+	color: gray;
+	font-size: 1.1em;
+}
+
+button {
+	font-weight: bold;
+}
+
+.hearts {
+	font-size: 2em;
+}
+
+.love-its {
+	font-size: 1.7em;
+}
+
+.hearts, .love-its {
+	vertical-align: middle;
+}
+
+@media (min-width: 768px) {
+	.date {
+		position: absolute;
+		top: 1.03rem;
+		right: 1.25rem;
+	}
+}

@@ -1,0 +1,21 @@
+<article [ngClass]="{	'content': true,
+						'list-group-item': true,
+						'list-group-item-success': loveIts > 0,
+						'list-group-item-danger': loveIts < 0
+					}">
+
+	<h3 [ngStyle]="{ color: getColor() }">{{ title }}</h3>
+	
+	<p [ngClass]="{'date': true }">{{ date | date: 'EEEE W LLLL yyyy' | titlecase }} {{ date | date: 'à HH:mm' }}</p>
+
+	<p [ngStyle]="{ color: getColor() }">{{ content }}</p>
+	
+	<button class="btn btn-success" (click)="onLike()">Love it !</button>
+
+	<button class="btn btn-danger mx-3" (click)="onDislike()">Don't love it !</button>
+
+	<span class="hearts">&hearts;</span>
+
+	<span class="love-its ml-2">{{ loveIts }}</span>
+	
+</article>

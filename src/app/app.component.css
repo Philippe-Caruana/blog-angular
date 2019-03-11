@@ -1,0 +1,12 @@
+nav a {
+    cursor: pointer;
+}
+
+.active {
+    background-color: gray;
+    border-radius: 0.4em;
+}
+
+.active .nav-link {
+    color: white;
+}

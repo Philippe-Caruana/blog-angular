@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   	selector: 'app-root',
@@ -8,26 +9,17 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
-  	posts = [
+	constructor() {
+		var config = {
+			apiKey: "AIzaSyA0_26UrG9CNeaTdSXGCzjvlGJf1ryd9G4",
+			authDomain: "blog-39015.firebaseapp.com",
+			databaseURL: "https://blog-39015.firebaseio.com",
+			projectId: "blog-39015",
+			storageBucket: "blog-39015.appspot.com",
+			messagingSenderId: "365584144904"
+		};
 
-  		{
-  			title: "Mon premier post",
-  			content: "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",
-  			loveIts: 1
-  		},
-
-  		{
-  			title: "Mon deuxième post",
-  			content: "Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.",
-  			loveIts: -1
-  		},
-
-  		{
-  			title: "Mon troisième post",
-  			content: "Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. ",
-  			loveIts: 0
-  		}
-
-  	]
-
+		firebase.initializeApp(config);
+	}
+	
 }

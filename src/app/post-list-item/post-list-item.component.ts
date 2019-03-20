@@ -1,4 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
+import { Router } from '@angular/router';
+import { Post } from '../models/Post.model';
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-post-list-item',
@@ -7,37 +12,40 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostListItemComponent implements OnInit {
 
-  	@Input() title: string;
-	@Input() content: string;
-	@Input() loveIts: number;
-	@Input() date: object;
-	
+	faThumbsUp = faThumbsUp;
+	faThumbsDown = faThumbsDown;
+	faHeart = faHeart;
 
-  	constructor() { 
-  		this.date = new Date();
+	@Input() post: Post;
+	
+  	constructor(private postsService: PostsService, private router: Router) { 
+  	
   	}
 
   	ngOnInit() {
   	}
 
-  	onLike() {
-  		this.loveIts += 1;
+  	onLike(post: Post) {
+		this.postsService.likePost(post);
   	}
 
-  	onDislike() {
-  		this.loveIts -= 1;
+  	onDislike(post: Post) {
+		this.postsService.dislikePost(post);
   	}
 
   	getColor() {
-  		if(this.loveIts > 0) {
+  		if(this.post.loveIts > 0) {
   			return '#28a745';
   		}
-  		else if(this.loveIts < 0) {
+  		else if(this.post.loveIts < 0) {
   			return '#dc3545';
   		}
   		else {
   			return '#343a40';
   		}
   	}
-
+	
+	onDeletePost(post: Post) {
+		this.postsService.removePost(post);
+	}
 }

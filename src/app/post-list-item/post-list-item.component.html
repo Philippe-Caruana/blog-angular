@@ -1,21 +1,25 @@
 <article [ngClass]="{	'content': true,
 						'list-group-item': true,
-						'list-group-item-success': loveIts > 0,
-						'list-group-item-danger': loveIts < 0
+						'list-group-item-success': post.loveIts > 0,
+						'list-group-item-danger': post.loveIts < 0
 					}">
 
-	<h3 [ngStyle]="{ color: getColor() }">{{ title }}</h3>
+	<h3 [ngStyle]="{ color: getColor() }">{{ post.title }}</h3>
 	
-	<p [ngClass]="{'date': true }">{{ date | date: 'EEEE W LLLL yyyy' | titlecase }} {{ date | date: 'à HH:mm' }}</p>
-
-	<p [ngStyle]="{ color: getColor() }">{{ content }}</p>
+	<p [ngClass]="{'date': true }">{{ post.publishedOn | date: 'EEEE dd LLLL yyyy' | titlecase }} {{ post.publishedOn | date: "à HH'h'mm" }}</p>
 	
-	<button class="btn btn-success" (click)="onLike()">Love it !</button>
+	<p [ngStyle]="{ color: getColor() }">{{ post.content }}</p>
+	
+	<button class="btn btn-success" (click)="onLike(post)" title="J'aime !">Love it ! <fa-icon [icon]="faThumbsUp" class="thumbsUp fa-lg"></fa-icon></button>
 
-	<button class="btn btn-danger mx-3" (click)="onDislike()">Don't love it !</button>
-
-	<span class="hearts">&hearts;</span>
-
-	<span class="love-its ml-2">{{ loveIts }}</span>
+	<button class="btn btn-danger mx-3" (click)="onDislike(post)" title="Je n'aime pas !">Don't love it ! <fa-icon [icon]="faThumbsDown" class="thumbsDown fa-lg"></fa-icon></button>
+	
+	<div class="d-xs-block d-sm-inline">
+		<!--<span class="hearts">&hearts;</span>-->
+		<fa-icon [icon]="faHeart" class="heart-icon fa-2x"></fa-icon>
+		<span class="love-its mx-2">{{ post.loveIts }}</span>
+	</div>
+	
+	<button class="btn btn-danger" (click)="onDeletePost(post)" id="delete-post" title="Supprimer : {{ post.title }}">Supprimer post</button>
 	
 </article>

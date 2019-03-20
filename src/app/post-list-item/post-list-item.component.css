@@ -12,16 +12,34 @@ button {
 	font-weight: bold;
 }
 
-.hearts {
-	font-size: 2em;
-}
-
 .love-its {
 	font-size: 1.7em;
 }
 
-.hearts, .love-its {
+.love-its {
 	vertical-align: middle;
+}
+
+.heart-icon {
+	vertical-align: -0.28em;
+}
+
+.thumbsUp {
+	vertical-align: 0em;
+}
+
+.thumbsDown {
+	vertical-align: -4.2px;
+}
+
+@media (max-width: 768px) {
+	article {
+		text-align: center!important;
+	}
+
+	article p:nth-of-type(2) {
+		text-align: justify!important;
+	}
 }
 
 @media (min-width: 768px) {
@@ -29,5 +47,11 @@ button {
 		position: absolute;
 		top: 1.03rem;
 		right: 1.25rem;
+	}
+}
+
+@media (min-width: 767.98px) {
+	#delete-post {
+		float: right;
 	}
 }

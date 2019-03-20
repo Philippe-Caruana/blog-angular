@@ -1,6 +1,6 @@
 # BlogAngular
 
-This project aims to learn the basics of Angular through a small exercise to understand the basics of the framework. It corresponds to the first activity of the OpenClassrooms Angular course.
+This project aims to learn the basics of Angular through a small exercise to understand the basics of the framework. It corresponds to the second activity of the OpenClassrooms Angular course.
 
 Firstly you must have installed [node.js](https://nodejs.org/en/), [NPM](https://www.npmjs.com/package/npm) and [Angular CLI](https://www.npmjs.com/package/@angular/cli) in a global way to be able to initialize the project.
 
